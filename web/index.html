@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="mint">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f2f7f4"><title>流沙 · Liusha</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<main class="shell">
+ <header><a class="brand" href="/" aria-label="流沙首页">◷</a><span class="wordmark">流 沙 <small>LIUSHA</small></span><button id="refresh" class="quiet" aria-label="刷新用量">↻</button></header>
+ <div class="intro"><span class="eyebrow">A LITTLE TIME, WELL SPENT</span><h1>每一次想起，<br>都有迹可循。</h1><p>让唤醒有分寸，让消耗看得见。</p><span class="seal">流<br>沙</span></div>
+ <div class="toolbar"><span id="mode">只读用量账本</span><label class="theme-label">配色 <select id="theme"><option value="mint">青提</option><option value="blossom">樱雪</option><option value="mist">雾蓝</option></select></label></div>
+ <section class="hero card" aria-label="所选时段用量"><div class="eyebrow">USAGE AT A GLANCE</div><div class="hero-line"><span>已知费用估算</span><strong id="cost">—</strong></div><p id="costNote">CLI/API 估算，不等同于订阅额度或账单。</p><div class="meter" role="meter" aria-label="按输入 token 加权的缓存读取比例" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="meter"><i></i></div><div class="meter-label"><span>输入缓存读取比例</span><b id="ratio">—</b></div></section>
+ <section class="stats" aria-label="用量统计"><article class="card"><small>调用次数</small><strong id="calls">—</strong><span>每一轮，都如实记下</span></article><article class="card"><small>缓存读取</small><strong id="read">—</strong><span>重复前缀的实际读取</span></article><article class="card"><small>缓存创建</small><strong id="created">—</strong><span>新写入仍然产生消耗</span></article><article class="card"><small>输出 tokens</small><strong id="output">—</strong><span id="partial">完整回报的已知输出</span></article></section>
+ <section class="keep card"><span class="dot"></span><div><h2>静默保活</h2><p id="keepState">正在读取状态</p><small>状态只读 · 打开本页不会调用模型</small></div><span class="keep-symbol">◌</span></section>
+ <div class="section-head"><h2>细水长流 <small>CALLS</small></h2><span id="count"></span></div>
+ <div class="filters"><label>时间 <select id="period"><option value="24h">最近 24 小时</option><option value="today">今天 · UTC+8</option><option value="7d">最近 7 天</option><option value="all">全部记录</option></select></label><label>来源 <select id="source"><option value="all">全部来源</option><option value="chat">普通聊天</option><option value="cc_wakeup">自主唤醒</option><option value="cc_wakeup_setup">唤醒设置</option><option value="bubble">自动冒泡</option><option value="cache_keepalive">静默保活</option><option value="other">其他</option></select></label></div>
+ <p id="error" role="status" hidden></p><div id="records" aria-live="polite"></div><button id="more" class="more" hidden>再看一些</button>
+ <details class="principle"><summary>如何读懂“命中”和费用？</summary><p>读取比例 = 缓存读取 ÷（缓存读取 + 缓存创建 + 非缓存输入）。有读取，也可能同时产生新写入。大量创建不一定意味着整段上下文冷重建。</p><p>“≥”表示仅拿到部分 usage，费用是已知输入的下限；未知费用显示“未回报”，不会当成零费用。</p><p>演示使用合成数据与示意价格，没有接入真实会话。生产版本应以逐条 usage 和账单核对。</p></details>
+ <footer>时间落在指缝里，也留在每一次记录里。<small>流沙 · Open-source companion observability</small></footer>
+</main>
+<dialog id="auth"><form method="dialog"><h2>连接只读账本</h2><p>输入你的部署管理员配置的访问令牌；仅保存在当前页面内存，关闭后清除。</p><input id="token" type="password" autocomplete="off" aria-label="访问令牌"><button value="connect">连接</button><button value="cancel">取消</button></form></dialog>
+</body></html>
