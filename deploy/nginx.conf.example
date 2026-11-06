@@ -1,0 +1,11 @@
+# Include INSIDE your existing HTTPS server block; adapt paths as needed.
+# Do not replace TLS, authentication, or your existing site's server block.
+location /liusha/ {
+    proxy_pass http://127.0.0.1:8779/;
+    proxy_set_header Host $host;
+    proxy_set_header Authorization $http_authorization;
+    add_header Cache-Control "no-store" always;
+}
+# The standalone page uses absolute /api and asset URLs. For a subpath mount,
+# adapt web/app.js and index.html asset URLs to /liusha/ (see docs/integration.md).
+# At a dedicated hostname, proxy location / to the same upstream instead.
