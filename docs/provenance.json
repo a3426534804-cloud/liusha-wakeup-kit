@@ -1,0 +1,40 @@
+{
+  "audited_on": "2026-11-06",
+  "source": "owner-authorized running deployment; no live data included",
+  "artifacts": [
+    {
+      "file": "cc_native.py",
+      "source_sha256": "2482d81997a80111288c87582808bed9715d3d39486959e58254164668ff3657",
+      "published_sha256": "93eacfba353529e4aa9e33b27d598bc660fdbc052e886a5e56953429df38f8d8",
+      "changes": [
+        "runtime paths moved to LIUSHA_* environment variables",
+        "private identity removed",
+        "credentials from environment only",
+        "optional app tool list configurable"
+      ]
+    },
+    {
+      "file": "silent_cache_keepalive.py",
+      "source_sha256": "b753e31b93db191ba5151af238849c00def5eb99dba01314d3c3927510e74fa0",
+      "published_sha256": "a883e2bb520bb91fa877c7301dba1738d795554a9387e3ecf17e23f86b991b37",
+      "changes": [
+        "runtime paths moved to LIUSHA_* environment variables",
+        "private identity removed",
+        "credentials from environment only",
+        "optional app tool list configurable",
+        "bundled shared-lock adapter; must also be adopted by ordinary chat"
+      ]
+    },
+    {
+      "file": "auto_idle_message.py",
+      "source_sha256": "2910652a66f29f99995c61868fef237393f36c77749d790594cdac9d30bd9c4c",
+      "published_sha256": "bb4870672f9533c0d0d0d26b628edde215396860436218e073f883d849daec14",
+      "changes": [
+        "runtime paths moved to LIUSHA_* environment variables",
+        "private identity removed",
+        "credentials from environment only",
+        "optional app tool list configurable"
+      ]
+    }
+  ]
+}
