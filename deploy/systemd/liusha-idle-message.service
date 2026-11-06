@@ -1,0 +1,19 @@
+[Unit]
+Description=Liusha idle-message policy check (dry-run by default)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=liusha
+Group=liusha
+WorkingDirectory=/opt/liusha-wakeup-kit
+EnvironmentFile=/etc/liusha/runtime.env
+ExecStart=/opt/liusha-wakeup-kit/.venv/bin/python -m integrations.production.auto_idle_message --check
+TimeoutStartSec=40
+Nice=10
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=false
+
+# Remove --check ONLY after integration and a dry-run review.
+# PrivateTmp must stay false when ordinary chat shares a /tmp lock.

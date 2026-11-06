@@ -1,0 +1,12 @@
+[Unit]
+Description=Check Liusha silent-cache once a minute
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1min
+AccuracySec=5s
+Persistent=false
+Unit=liusha-silent-cache.service
+
+[Install]
+WantedBy=timers.target
