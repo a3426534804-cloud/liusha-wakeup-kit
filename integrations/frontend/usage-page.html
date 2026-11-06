@@ -1,0 +1,28 @@
+<section class="wan-page usage-page hidden" id="usagePage" aria-hidden="true">
+  <header class="wan-head"><button class="wan-back" id="usageBack" type="button" aria-label="返回聊天"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></path></svg></button><div class="wan-title">用量</div><button class="usage-refresh" id="usageRefresh" type="button" aria-label="刷新用量"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6v5h-5"/></path><path d="M18.2 15.5A7 7 0 1 1 19 8.2L20 11"/></path></svg></button></header>
+  <div class="wan-body usage-body">
+    <section class="usage-hero">
+      <div class="usage-eyebrow">CURRENT SESSION</div><div class="usage-model" id="usageModel">正在读取…</div>
+      <div class="usage-context-line"><span class="usage-context-main" id="usageContext">—</span><span class="usage-context-limit" id="usageLimit">最近一次调用的输入量</span></div>
+      <div class="usage-summary" id="usageSummary">这里只读取记录，打开页面不会调用 Claude。</div>
+    </section>
+    <div class="usage-grid">
+      <section class="usage-card usage-stat"><div class="usage-stat-label">缓存状态</div><div class="usage-stat-value" id="usageCacheState">—</div></section>
+      <section class="usage-card usage-stat"><div class="usage-stat-label">缓存命中</div><div class="usage-stat-value" id="usageCacheRatio">—</div></section>
+      <section class="usage-card usage-stat"><div class="usage-stat-label">本次读取</div><div class="usage-stat-value" id="usageCacheRead">—</div></section>
+      <section class="usage-card usage-stat"><div class="usage-stat-label">本次重建</div><div class="usage-stat-value" id="usageCacheCreated">—</div></section>
+    </div>
+    <div class="usage-section-title">调用账本 <span class="usage-muted">Claude Code 桥接日志</span></div>
+    <div class="usage-ledger-controls"><select id="usagePeriod" aria-label="统计时间"><option value="today">今天</option><option value="24h" selected>近 24 小时</option><option value="7d">近 7 天</option><option value="all">全部记录</option></select><select id="usageSource" aria-label="调用来源"><option value="all">全部来源</option><option value="chat">对话回复</option><option value="bubble">自动冒泡</option><option value="cc_wakeup">自主唤醒</option><option value="cc_wakeup_setup">唤醒设置</option><option value="cache_keepalive">静默保活</option><option value="other">其他</option></select></div>
+    <section class="usage-card usage-ledger-panel" id="usageLedgerSummary">正在统计…</section>
+    <section class="usage-card usage-ledger-panel" id="usageLedgerSources"></section>
+    <section class="usage-card usage-ledger-panel" id="usageCompactions"></section>
+    <div class="usage-section-title">缓存保活</div>
+    <section class="usage-card usage-keepalive is-waiting" id="usageKeepalive">
+      <div class="usage-record-top"><span class="usage-record-state usage-keepalive-state"><i class="usage-keepalive-dot"></i><span id="usageKeepaliveState">正在读取…</span></span><span class="usage-record-time" id="usageKeepaliveNext"></span></div>
+      <div class="usage-record-detail" id="usageKeepaliveDetail">保活记录不会混入普通聊天调用。</div>
+    </section>
+    <div class="usage-section-title">最近调用 <span class="usage-muted" id="usageLedgerCount"></span></div><div class="usage-list" id="usageRecent"><div class="usage-empty">正在读取…</div></div>
+    <p class="usage-ledger-note">费用为 Claude CLI 对这些调用的美元估算，不等于订阅额度扣减；页面只记录经过本站桥接的调用。缓存读取、创建和输入为不同字段，不应相加当作账单。打开本页不会调用 Claude。</p>
+  </div>
+</section>
