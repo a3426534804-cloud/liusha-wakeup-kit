@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "liusha-wakeup-kit"
+version = "0.1.0"
+description = "Read-only AI usage observability and production wakeup/cache keepalive reference"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = []
+
+[project.optional-dependencies]
+integration = ["tzdata"]
+
+[tool.setuptools.packages.find]
+include = ["liusha*", "integrations*"]
+
+[tool.setuptools.data-files]
+"share/liusha/web" = ["web/index.html", "web/style.css", "web/app.js"]
